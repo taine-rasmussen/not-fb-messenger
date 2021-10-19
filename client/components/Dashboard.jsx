@@ -1,11 +1,15 @@
 import React from 'react';
 
+// components
+import Sidebar from './Sidebar'
 
 const Dashboard = ({id}) => {
 
    return(
       <>
-         {id}
+         <div className="d-flex" style={{ height: '100vh'}}>
+            <Sidebar id={id} />
+         </div>
       </>
    )
 }
