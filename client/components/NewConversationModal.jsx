@@ -1,10 +1,11 @@
 import React from 'react';
+import { Modal } from 'react-bootstrap'
 
 const NewConversationModal = () => {
    return(
-      <div>
-
-      </div>
+      <>
+         <Modal.Header closeButton>Create Conversation</Modal.Header>
+      </>
    )
 }
 
