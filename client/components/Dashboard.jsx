@@ -1,11 +1,13 @@
 import React from 'react';
 
+// components
+import Sidebar from './Sidebar'
 
 const Dashboard = ({id}) => {
 
    return(
       <>
-         {id}
+         <Sidebar id={id} />
       </>
    )
 }
