@@ -43,7 +43,8 @@
     "knex": "^0.21.12",
     "pg": "^8.5.1",
     "react-bootstrap": "^1.6.4",
-    "superagent": "^6.1.0"
+    "superagent": "^6.1.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",

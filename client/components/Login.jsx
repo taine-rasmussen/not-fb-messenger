@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { Container, Form, Button } from 'react-bootstrap'
+import { v4 as uuidV4 } from 'uuid'
 
-const Login = ({setId}) => {
+const Login = ({setId, id}) => {
 
    const idRef = useRef()
 
@@ -9,6 +10,12 @@ const Login = ({setId}) => {
    const handleSubmit = (e) => {
       e.preventDefault()
       setId(idRef.current.value)
+   }
+
+   // Creates random Id and updates setId
+   const createNewId = () => {
+      setId(uuidV4())
+      console.log(id)
    }
 
    return(
@@ -19,7 +26,7 @@ const Login = ({setId}) => {
                <Form.Control type="text" ref={idRef} required></Form.Control>
             </Form.Group>
             <Button type="submit">Login</Button>
-            <Button variant="secondary">Create new Id</Button>
+            <Button variant="secondary" onClick={createNewId}>Create new Id</Button>
          </Form>
       </Container>
    )
