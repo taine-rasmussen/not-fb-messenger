@@ -3,6 +3,7 @@ import useLocalStorage from '../LocalStorage'
 
 // components
 import Login from './Login'
+import Dashboard from './Dashboard'
 
 const App = () => {
 
@@ -10,8 +11,7 @@ const App = () => {
 
    return(
       <>
-         {id}
-         <Login setId={setId} id={id}/>
+         {id ? <Dashboard id={id}/> : <Login setId={setId} id={id}/>} 
       </>
    )
 }
