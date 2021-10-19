@@ -1,10 +1,11 @@
 import React from 'react';
+import { Modal } from 'react-bootstrap'
 
-const NewContactModal = () => {
+const NewContactModal = ({closeModal}) => {
    return(
-      <div>
-         
-      </div>
+      <>
+         <Modal.Header closeButton>Create Contact</Modal.Header>
+      </>
    )
 }
 
