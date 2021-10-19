@@ -33,17 +33,19 @@ const Sidebar = ({id}) => {
                </Nav.Item>
             </Nav>
 
-            <Tab.Content className="border-right overflow-auto flex-grow-1">
-               <Tab.Pane eventKey={CONVERSATIONS_KEY}>
-                  <Conversations />
-               </Tab.Pane>
-               <Tab.Pane eventKey={CONTACTS_KEY}>
-                  <Contacts />
-               </Tab.Pane>
-            </Tab.Content>
+               <Tab.Content className="border-right overflow-auto flex-grow-1">
+                  <Tab.Pane eventKey={CONVERSATIONS_KEY}>
+                     <Conversations />
+                  </Tab.Pane>
+                  <Tab.Pane eventKey={CONTACTS_KEY}>
+                     <Contacts />
+                  </Tab.Pane>
+               </Tab.Content>
+
             <div className="p-2 border-top border-right small">
                Your Id: <span className="text-muted">{id}</span>
             </div>
+
             <Button onClick={() => setModalOpen(true)} className='rounded-0'>
                New {conversationsOpen ? 'Conversation' : 'Contact'}
             </Button>
