@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import useLocalStorage from '../LocalStorage'
 
 // components
 import Login from './Login'
 
 const App = () => {
+
+   const [id, setId] = useLocalStorage('id')
+
    return(
-      <Login />
+      <>
+         {id}
+         <Login setId={setId} id={id}/>
+      </>
    )
 }
 
