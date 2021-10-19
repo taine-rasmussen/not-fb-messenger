@@ -8,6 +8,8 @@ const NewContactModal = ({closeModal}) => {
 
    const handleSubmit = (e) => {
       e.preventDefault()
+
+      closeModal()
    }
 
    return(
