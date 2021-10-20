@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useLocalStorage from '../LocalStorage'
 import { ContactsProvider } from '../Context/ContactsProvider'
+import { ConversationsProvider } from '../Context/ConversationsProvider'
 
 // components
 import Login from './Login'
@@ -12,7 +13,9 @@ const App = () => {
 
    const dashboard = (
       <ContactsProvider>
-         <Dashboard id={id}/>
+         <ConversationsProvider>
+            <Dashboard id={id}/>
+         </ConversationsProvider>
       </ContactsProvider>
    )
 
