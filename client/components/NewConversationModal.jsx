@@ -9,6 +9,8 @@ const NewConversationModal = ({closeModal}) => {
    const { createConversation } = useConversations()
    const [selectedContactIds, setSelectedContactIds] = useState([])
 
+   console.log('test', selectedContactIds)
+
       // Handles form submit
       const handleSubmit = (e) => {
          e.preventDefault()
@@ -21,7 +23,7 @@ const NewConversationModal = ({closeModal}) => {
          setSelectedContactIds(prevSelectedContactIds => {
             if (prevSelectedContactIds.includes(contactId)) {
             return prevSelectedContactIds.filter(prevId => {
-               return contactId !== prevId
+               return contactId != prevId
             })
             } else {
             return [...prevSelectedContactIds, contactId]
@@ -40,7 +42,7 @@ const NewConversationModal = ({closeModal}) => {
                            type="checkbox"
                            value={selectedContactIds.includes(contact.id)}
                            label={contact.name}
-                           onChange={() => handleCheckboxChange}
+                           onChange={() => handleCheckboxChange(contact.id)}
                         />
                      </Form.Group>
                   ))}

@@ -6,10 +6,12 @@ export default function Conversations() {
 
   const { conversations } = useConversations()
 
+//   console.log(conversations)
+
   return (
     <ListGroup variant="flush">
       {conversations.map((conversation, index) => (
-        <ListGroup.Item>
+        <ListGroup.Item key={index}>
           {conversation.recipients.map(r => r.name).join(', ')}
         </ListGroup.Item>
       ))}
