@@ -5,7 +5,7 @@ import { useConversations } from '../Context/ConversationsProvider';
 
 const OpenConversation = () => {
 
-   const { sendMessage } = useConversations()
+   const { sendMessage, selectedConversation } = useConversations()
 
    const [text, setText] = useState('')
 
