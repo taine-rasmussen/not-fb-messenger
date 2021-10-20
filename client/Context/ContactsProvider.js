@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import useLocalStorage from '../LocalStorage'
 
-const ContactsContext = React.createContext()
 
-export function useContacts (){
-   return useContext(ContactsContext)
-}
+   const ContactsContext = React.createContext()
 
-
+   export function useContacts (){
+      return useContext(ContactsContext)
+   }
 
 export function ContactsProvider ({ children }) {
 

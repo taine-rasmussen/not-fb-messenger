@@ -3,7 +3,7 @@ import { Modal, Form, Button } from 'react-bootstrap'
 import { useContacts } from '../Context/ContactsProvider'
 import { useConversations } from '../Context/ConversationsProvider'
 
-const NewConversationModal = () => {
+const NewConversationModal = ({closeModal}) => {
 
    const { contacts } = useContacts()
    const { createConversation } = useConversations()
