@@ -1,25 +1,47 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import useLocalStorage from '../LocalStorage'
+import { useContacts } from './ContactsProvider'
 
 const ConversationsContext = React.createContext()
 
-export function useConversations (){
-   return useContext(ConversationsContext)
+export function useConversations() {
+  return useContext(ConversationsContext)
 }
+
 
 export function ConversationsProvider ({ children }) {
 
-   const [converstations, setConversations] = useLocalStorage('conversations', [])
+   const [conversations, setConversations] = useLocalStorage('conversations', [])
+   const { contacts } = useContacts()
 
-   function createConversations (recipients) {
-      setConversations(prevConversations => {
+
+   const createConversation = (recipients) => {
+    setConversations(prevConversations => {
       return [...prevConversations, { recipients, messages: [] }]
     })
-   }
+  }
+ const formattedConversations = conversations.map((conversation, index) => {
+    const recipients = conversation.recipients.map(recipient => {
+      const contact = contacts.find(contact => {
+        return contact.id === recipient
+      })
+      const name = (contact && contact.name) || recipient
+      return { id: recipient, name }
+    })
 
-   return(
-      <ConversationsContext.Provider value={converstations, createConversations}>
+    return { ...conversation, recipients}
+  })
+
+ 
+  const value = {
+    conversations: formattedConversations,
+    createConversation
+  }
+
+  return (
+    <ConversationsContext.Provider value={value}>
       {children}
     </ConversationsContext.Provider>
-   )
+  )
 }
+
