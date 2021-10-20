@@ -32,7 +32,6 @@ const Sidebar = ({id}) => {
                   <Nav.Link eventKey={CONTACTS_KEY}>Contacts</Nav.Link>
                </Nav.Item>
             </Nav>
-
                <Tab.Content className="border-right overflow-auto flex-grow-1">
                   <Tab.Pane eventKey={CONVERSATIONS_KEY}>
                      <Conversations />
@@ -42,13 +41,13 @@ const Sidebar = ({id}) => {
                   </Tab.Pane>
                </Tab.Content>
 
-            <div className="p-2 border-top border-right small">
-               Your Id: <span className="text-muted">{id}</span>
-            </div>
+               <div className="p-2 border-top border-right small">
+                  Your Id: <span className="text-muted">{id}</span>
+               </div>
 
-            <Button onClick={() => setModalOpen(true)} className='rounded-0'>
-               New {conversationsOpen ? 'Conversation' : 'Contact'}
-            </Button>
+               <Button onClick={() => setModalOpen(true)} className='rounded-0'>
+                  New {conversationsOpen ? 'Conversation' : 'Contact'}
+               </Button>
          </Tab.Container>
 
          <Modal show={modalOpen} onHide={closeModal}>
@@ -57,8 +56,6 @@ const Sidebar = ({id}) => {
                <NewContactModal closeModal={closeModal}/>
             }
          </Modal>
-
-
       </div>
    )
 }
